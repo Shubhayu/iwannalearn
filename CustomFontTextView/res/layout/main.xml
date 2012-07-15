@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.iwannalearn.customcontrols"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <com.iwannalearn.customcontrols.CustomFontTextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        app:fontName="AirMole"
+        android:text="AirMole" android:textSize="22sp"/>
+    
+    <com.iwannalearn.customcontrols.CustomFontTextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        app:fontName="AirMoleAntique"
+        android:text="AirMoleAntique" android:textSize="22sp"/>
+    
+    <com.iwannalearn.customcontrols.CustomFontTextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        app:fontName="AirMoleShaded"
+        android:text="AirMoleShaded" android:textSize="22sp"/>
+    
+    <com.iwannalearn.customcontrols.CustomFontTextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        app:fontName="AirMoleStripe"
+        android:text="AirMoleStripe" android:textSize="22sp"/>
+
+</LinearLayout>
