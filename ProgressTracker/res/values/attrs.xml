@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ProgressTracker">
+        <attr name="progressBar" format="integer" />
+        <attr name="progressStatusImage" format="integer"/>
+        <attr name="progressTaskDescription" format="integer"/>
+        <attr name="progressActionButton1" format="integer"/>
+    </declare-styleable>
+</resources>
