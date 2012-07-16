@@ -4,7 +4,7 @@
         android:drawable="@drawable/icon_blank"
         android:maxLevel="0"/>
 	<item
-        android:drawable="@drawable/icon_blank"
+        android:drawable="@drawable/icon_wip"
         android:maxLevel="1"/>
     <item
         android:drawable="@drawable/icon_success"

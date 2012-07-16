@@ -28,6 +28,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		progress = (ProgressTracker) findViewById(R.id.progress_tracker);
+		progress.setText("Calculating your Awesomeness...");
 		progress.setButtontext("Hide");
 
 		progress.setActionButtonOnClickListener(new OnClickListener() {
@@ -46,6 +47,50 @@ public class MainActivity extends Activity {
 
 		successBtn.setOnClickListener(successBtnListener);
 		unsuccessBtn.setOnClickListener(unsuccessBtnListener);
+		
+		final ProgressTracker progress_minimal = (ProgressTracker) findViewById(R.id.progress_tracker_minimal);
+		progress_minimal.setButtontext("Start");
+		progress_minimal.setActionButtonOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				runProgressTracker(progress_minimal, true);
+			}
+		});
+		progress_minimal.setMax(100);
+		progress_minimal.setOnProgressTrackerListener(ptListener);
+		
+		final ProgressTracker progress_rearranged = (ProgressTracker) findViewById(R.id.progress_tracker_rearranged);
+		progress_rearranged.setMax(100);
+		progress_rearranged.setButtontext("Start");
+		progress_rearranged.setActionButtonOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				runProgressTracker(progress_rearranged, false);
+			}
+		});
+		progress_rearranged.setOnProgressTrackerListener(new ProgressTrackerListener() {
+			
+			@Override
+			public void onProgressStopped(ProgressStatus status) {
+				switch (status) {
+				case SUCCESS:
+					progress_rearranged.setText("The Task was successfull!");
+					incrementProgress.cancel();
+					timer.purge();
+					break;
+				case FAILED:
+					progress_rearranged.setText("The Task failed!");
+					timer.purge();
+					break;
+				case INPROGRESS:
+					progress_rearranged.setText("Calculating your Awesomeness!!!");
+					break;
+				}
+			}
+		});
+		
 	}
 
 	@Override
@@ -59,7 +104,7 @@ public class MainActivity extends Activity {
 		@Override
 		public void onClick(View v) {
 			progress.resetProgressTracker();
-			runProgressTracker(true);
+			runProgressTracker(progress, true);
 		}
 	};
 
@@ -68,7 +113,7 @@ public class MainActivity extends Activity {
 		@Override
 		public void onClick(View v) {
 			progress.resetProgressTracker();
-			runProgressTracker(false);
+			runProgressTracker(progress, false);
 		}
 	};
 
@@ -76,7 +121,7 @@ public class MainActivity extends Activity {
 	Timer timer = new Timer();
 	int prog = 0;
 
-	private void runProgressTracker(final boolean successRun) {
+	private void runProgressTracker(final ProgressTracker progressTracker, final boolean successRun) {
 
 		prog = 0;
 		incrementProgress = new TimerTask() {
@@ -88,7 +133,7 @@ public class MainActivity extends Activity {
 						
 						@Override
 						public void run() {
-							progress.notifyError("Oh No! The Timer stopped at 65!");				
+							progressTracker.notifyError("Oh No! The Timer stopped at 65!");				
 						}
 					});
 					cancel();
@@ -98,7 +143,7 @@ public class MainActivity extends Activity {
 						
 						@Override
 						public void run() {
-							progress.setProgress(prog);						
+							progressTracker.setProgress(prog);						
 						}
 					});
 				}				
@@ -125,5 +170,4 @@ public class MainActivity extends Activity {
 			}
 		}
 	};
-
 }

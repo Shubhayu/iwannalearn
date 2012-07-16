@@ -5,10 +5,32 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#dedede"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_example1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Successful Task" />
+
+        <Button
+            android:id="@+id/btn_example2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Unsuccessful Task" />
+    </LinearLayout>
+
     <com.iwannalearn.progresstracker.ProgressTracker
         android:id="@+id/progress_tracker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#898989"
         android:descendantFocusability="blocksDescendants"
         android:padding="10dp"
         app:progressActionButton1="@+id/action_button"
@@ -19,8 +41,7 @@
         <TextView
             android:id="@+id/description"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Calculating your awesomeness..." />
+            android:layout_height="wrap_content" />
 
         <ProgressBar
             android:id="@+id/progress"
@@ -30,7 +51,7 @@
             android:layout_below="@id/description"
             android:layout_marginTop="10dp"
             android:layout_toLeftOf="@id/status_image" />
-
+
         <ImageView
             android:id="@+id/status_image"
             android:layout_width="wrap_content"
@@ -46,20 +67,83 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_below="@id/status_image"
-            android:layout_marginTop="10dp"
-            android:text="Button" />
+            android:layout_marginTop="10dp" />
     </com.iwannalearn.progresstracker.ProgressTracker>
 
-    <Button
-        android:id="@+id/btn_example1"
+    <com.iwannalearn.progresstracker.ProgressTracker
+        android:id="@+id/progress_tracker_minimal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Successful Task" />
+        android:background="#dedede"
+        android:descendantFocusability="blocksDescendants"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        app:progressActionButton1="@+id/action_button_minimal"
+        app:progressBar="@+id/progress_minimal" >
 
-    <Button
-        android:id="@+id/btn_example2"
+        <ProgressBar
+            android:id="@+id/progress_minimal"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/action_button_minimal" />
+
+        <Button
+            android:id="@+id/action_button_minimal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp" />
+    </com.iwannalearn.progresstracker.ProgressTracker>
+
+    <com.iwannalearn.progresstracker.ProgressTracker
+        android:id="@+id/progress_tracker_rearranged"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Unsuccessful Task" />
+        android:background="#898989"
+        android:descendantFocusability="blocksDescendants"
+        android:padding="10dp"
+        app:progressActionButton1="@+id/action_button_rearranged"
+        app:progressBar="@+id/progress_rearranged"
+        app:progressStatusImage="@+id/status_image_rearranged"
+        app:progressTaskDescription="@+id/description_rearranged" >
+
+        <ImageView
+            android:id="@+id/status_image_rearranged"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/task_status" />
+
+        <ProgressBar
+            android:id="@+id/progress_rearranged"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/status_image_rearranged" />
+
+        <TextView
+            android:id="@+id/description_rearranged"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/status_image_rearranged"
+            android:layout_marginTop="10dp"
+            android:layout_toLeftOf="@+id/action_button_rearranged" />
+
+        <Button
+            android:id="@+id/action_button_rearranged"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/status_image_rearranged"
+            android:layout_marginTop="10dp" />
+    </com.iwannalearn.progresstracker.ProgressTracker>
 
 </LinearLayout>
