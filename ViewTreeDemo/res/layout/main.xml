@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <View
+        android:id="@+id/WhiteView"
+        android:layout_width="200dp"
+        android:layout_height="300dp"
+        android:layout_marginLeft="20dp"
+        android:background="#ffffff" />
+
+    <TextView
+        android:id="@+id/RedText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/hello"
+        android:textColor="#ff0000" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/GrayView"
+        android:layout_alignLeft="@+id/GrayView"
+        android:layout_marginBottom="25dp"
+        android:background="#0000ff"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/GreenText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="#00ff00"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/Button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button in LinearLayout" />
+    </LinearLayout>
+	
+    <View
+        android:id="@+id/RedView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentRight="true"
+        android:layout_above="@+id/GrayView"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="-10dp"
+        android:background="#ff0000" />
+    
+    <View
+        android:id="@+id/GrayView"
+        android:layout_width="200dp"
+        android:layout_height="300dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:background="#cccccc" />
+
+</RelativeLayout>
